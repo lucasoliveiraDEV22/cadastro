@@ -1,24 +1,22 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './Containers/Home';
+import Users from './Containers/Users';
 
-import { Switch } from 'react-router-dom'
+function Routes(){
 
-import Home from "./containers/Home";
-import Users from "./containers/Users";
+    return (
 
-function Routes() {
-  <BrowserRouter>
-    <Switch>
-     
-        <Route element={<Home />} path="/" exact />
-        <Route element={<Users />} path="/usuarios" exact />
-     
-    </Switch>
-  </BrowserRouter>;
+        <Router>
+        <Switch>
+        < Route  exact path={'/'} component={Home} />
+        < Route  exact path={'/usuarios'} component={Users}/>
+
+        </Switch>
+
+        </Router>
+
+    )
 }
 
-export default Routes;
+export default Routes
