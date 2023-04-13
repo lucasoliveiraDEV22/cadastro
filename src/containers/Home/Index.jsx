@@ -9,6 +9,7 @@ import {
   Input,
   Button
 } from "./styles";
+// import { Link } from 'react-router-dom';
 import People from "../../assets/people.svg";
 import Arrow from "../../assets/arrow.svg";
 function App() {
@@ -24,6 +25,8 @@ function App() {
     name: inputName.current.value,
     age: inputAge.current.value
   })
+
+
     setUsers([
       ...users, 
       newUser
@@ -33,7 +36,7 @@ function App() {
     // console.log (inputName.current.value)
     // console.log (inputAge.current.value)
   }
-  
+
  
   return(
     <Container>
@@ -44,14 +47,15 @@ function App() {
         <Input placeholder="Nome" ref={inputName} />
         <InputLabel>Idade</InputLabel>
         <Input placeholder="Idade" ref={inputAge} />
+
+       
         <Button onClick={addNewUser}>
+          
           Cadastrar
           <img alt="seta" src={Arrow} />
         </Button>
-      
       </ContainerItems>
     </Container>
   );
 }
-
 export default App;

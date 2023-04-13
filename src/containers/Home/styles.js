@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Background from "../../assets/Back-purple.svg";
+import Background from "../../assets/Back-purple.svg"
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   height: 100%;
@@ -96,4 +97,5 @@ export const Button = styled.button`
   &:active {
     opacity: 0.5;
   }
+  
 `;
