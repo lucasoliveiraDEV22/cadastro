@@ -11,6 +11,8 @@ import {
 import Avatar from "../../assets/avatar.svg";
 import Arrow from "../../assets/arrow.svg";
 import Trash from "../../assets/trash.svg";
+import {Link} from 'react-router-dom'
+
 function Users() {
   const [users, setUsers] = useState([]);
  
@@ -46,10 +48,9 @@ function Users() {
               </button>
             </User>
           ))}
-          <Button>
-          <img alt="seta" src={Arrow} />
+          <Link to='/'>
             Voltar
-          </Button>
+          </Link>
         </ul>
       </ContainerItems>
     </Container>

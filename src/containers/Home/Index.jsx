@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import axios from 'axios'
+import axios from "axios";
 import {
   Container,
   H1,
@@ -7,55 +7,46 @@ import {
   ContainerItems,
   InputLabel,
   Input,
-  Button
+  Button,
 } from "./styles";
-// import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import People from "../../assets/people.svg";
 import Arrow from "../../assets/arrow.svg";
-function App() {
+function Home() {
+
   const [users, setUsers] = useState([]);
   const inputName = useRef();
   const inputAge = useRef();
-
+  const navigate = useNavigate();
   // const users = [];
- async function addNewUser() {
+  async function addNewUser() {
+    const { data: newUser } = await axios.post("http://localhost:3001/users/", {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+    });
 
+    setUsers([...users, newUser]);
 
-  const {data: newUser} = await axios.post ("http://localhost:3001/users/",{
-    name: inputName.current.value,
-    age: inputAge.current.value
-  })
-
-
-    setUsers([
-      ...users, 
-      newUser
-    ]);
-     // console.log (newUser)
-    // console.log (name, age)
-    // console.log (inputName.current.value)
-    // console.log (inputAge.current.value)
+    navigate("/usuarios")
   }
 
- 
-  return(
+  return (
     <Container>
       <Image alt="logo-imagem" src={People} />
       <ContainerItems>
-        <H1>Olá!</H1>
+        <H1>Hello</H1>
         <InputLabel>Nome</InputLabel>
         <Input placeholder="Nome" ref={inputName} />
         <InputLabel>Idade</InputLabel>
         <Input placeholder="Idade" ref={inputAge} />
 
-       
-        <Button onClick={addNewUser}>
-          
+        <Button onClick={ addNewUser }>
           Cadastrar
           <img alt="seta" src={Arrow} />
         </Button>
+
       </ContainerItems>
     </Container>
   );
 }
-export default App;
+export default Home;

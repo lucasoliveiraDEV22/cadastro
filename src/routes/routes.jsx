@@ -5,10 +5,12 @@ import Users from "../Containers/Users";
 
 function Router() {
   return (
+    <BrowserRouter>
     <Routes>
-      <Route path={"/"} element={<Home />} />
-      <Route path={"/usuarios"} element={<Users />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/usuarios" element={<Users />} />
     </Routes>
+    </BrowserRouter>
   );
 }
 
